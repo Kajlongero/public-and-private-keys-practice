@@ -15,8 +15,9 @@ app.get("/route", (req, res) => {
 });
 
 const opts = {
-  cert: fs.readFileSync(path.join(__dirname, "src", "cert", "selfsigned.crt")),
-  key: fs.readFileSync(path.join(__dirname, "src", "cert", "selfsigned.key")),
+  cert: fs.readFileSync(path.join(__dirname, "cert", "selfsigned.crt")),
+  key: fs.readFileSync(path.join(__dirname, "cert", "selfsigned.key")),
+  rejectUnauthorized: false,
 };
 
 const httpsServer = https.createServer(opts, app);
